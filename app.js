@@ -8,8 +8,10 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
+// var zxcvbn = require('zxcvbn');
+// //zxcvbn('Tr0ub4dour&3');
 
-
+// console.log(zxcvbn('poop'))
 mongoose
   .connect('mongodb://localhost/secondproject', {useNewUrlParser: true})
   .then(x => {
