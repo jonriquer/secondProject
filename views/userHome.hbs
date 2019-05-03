@@ -1,0 +1,20 @@
+<div id="container">
+  <h1>User Portal</h1>
+  <h2>You are in a session!</h2>
+</div>
+
+<form id="tickerSearchBar" action="/userHome/query" method="GET">
+    <label for="stockTicker">Stock Ticker</label><br>
+    <input type="text" name="stockTicker" placeholder="Enter Your Stock">
+</form>
+
+{{#if financeData}}
+  <div id="infoPanel">
+    {{#each apiInfo}}
+      Key: {{@key}} Value = {{this.[4. close]}}<br>
+    {{/each}}
+  </div>
+{{/if}}
+
+<a href="/logout">Logout</a>
+

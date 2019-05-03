@@ -8,10 +8,9 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-// var zxcvbn = require('zxcvbn');
-// //zxcvbn('Tr0ub4dour&3');
+const session    = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
-// console.log(zxcvbn('poop'))
 mongoose
   .connect('mongodb://localhost/secondproject', {useNewUrlParser: true})
   .then(x => {
@@ -25,6 +24,8 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -40,6 +41,14 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -53,8 +62,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 
-const router = require('./routes/auth');
-app.use('/', router);
 
+app.use('/', require('./routes/auth'));
+app.use('/', require('./routes/user-routes'));
 
 module.exports = app;

@@ -1,3 +1,4 @@
+<div class="page-container">
   <form id="form" action="/signup" method="POST">
     <label for="username">Username</label><br>
     <input type="text" name="username"
@@ -7,15 +8,18 @@
     <input type="password" id="password" name="password" placeholder="********">
 
     <div class="meter-container"><meter max="4" id="strengthMeter"></meter></div>
-    <ul id="password-text">
+    <div id="strengthText"></div>
+    {{!-- <ul id="password-text">
       <li>Use 6-64 characters.</li>
       <li>Include atleast one number or symbol.</li>
-    </ul>
+    </ul> --}}
 
     <button type="submit">Create account</button>
   </form>
 
   {{#if errorMessage}}
   <div class="error-message">{{ errorMessage }}</div>
-{{/if}}
-
+  {{/if}}
+</div>
+  
+<script src="/javascripts/passwordStrength.js"></script>

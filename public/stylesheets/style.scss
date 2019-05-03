@@ -1,3 +1,7 @@
+.page-container {
+  display: flex;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -89,4 +93,9 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
   background-color: rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: -1;
-  height: .5em;}
+  height: .5em;
+}
+
+#strengthText {
+  padding: 5px 0 25px 0;
+}
