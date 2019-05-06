@@ -1,20 +1,34 @@
-<div id="container">
+<div class="page-container">
+<div>
   <h1>User Portal</h1>
   <h2>You are in a session!</h2>
 </div>
 
 <form id="tickerSearchBar" action="/userHome/query" method="GET">
     <label for="stockTicker">Stock Ticker</label><br>
-    <input type="text" name="stockTicker" placeholder="Enter Your Stock">
+    <input id="Ticker" type="text" value="aapl" name="stockTicker" placeholder="Enter Your Stock">
 </form>
+{{query}}
+<button><a href="/stock?stockTicker={{stockTicker}}">Record Buy</a></button>
+<button><a href="/stock">Record Sell</a></button>
 
 {{#if financeData}}
-  <div id="infoPanel">
+  <div class="hideMe"> {{theData}} </div>
+  <div class="hideDates"> {{theDates}} </div>
+  <div class="hideLabel"> {{theLabel}} </div>
+  {{!-- <div id="infoPanel">
     {{#each apiInfo}}
       Key: {{@key}} Value = {{this.[4. close]}}<br>
     {{/each}}
-  </div>
+  </div> --}}
+<canvas id="myChart" width="350" height="150"></canvas>
+
 {{/if}}
 
-<a href="/logout">Logout</a>
 
+{{#each myStocks}}
+  {{ticker}}
+  {{price}}
+{{/each}}
+</div>
+  <script src="/javascripts/chart.js"></script>  

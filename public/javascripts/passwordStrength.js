@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   var password = document.getElementById('password');
   var strengthText = document.getElementById('strengthText');
-
+ 
   password.addEventListener('input', function() {
     var val = password.value;
     var result = zxcvbn(val);

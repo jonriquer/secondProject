@@ -1,0 +1,17 @@
+<h1>Stock Page</h1>
+<div class="hideLabel"> {{ theLabel}} </div>
+<form action="/stock" method="post">
+  <input type="text" value= "{{capitalize stockTicker}}" name="ticker"> 
+  <input type="number" placeholder="Enter Current Price" name="price">
+  <input type="number" placeholder="Enter Market Cap" name="marketCap">
+  <input type="number" placeholder="Enter P/E Ratio" name="peRatio">
+  <button type="submit">Add Stock Purchase</button>
+</form>
+
+<form action="/stock" method="post">
+  <input type="text" value= "{{capitalize stockTicker}}" name="ticker"> 
+  <input type="number" placeholder="Enter Current Price" name="price">
+  <input type="number" placeholder="Enter Market Cap" name="marketCap">
+  <input type="number" placeholder="Enter P/E Ratio" name="peRatio">
+  <button type="submit">Add Stock Sale</button>
+</form>

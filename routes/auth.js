@@ -1,13 +1,13 @@
-const express = require('express');
-const router  = express.Router();
-const User           = require("../models/user");
-const bcrypt         = require("bcrypt");
-const bcryptSalt     = 10;
+const express     = require('express');
+const router      = express.Router();
+const User        = require("../models/user");
+const bcrypt      = require("bcrypt");
+const bcryptSalt  = 10;
 
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  res.render('index');
+  res.render('index', {user: req.session.currentUser});
 });
 
 router.get("/signup", (req, res, next) => {

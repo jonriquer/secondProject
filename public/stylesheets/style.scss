@@ -1,10 +1,15 @@
 .page-container {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100vh;
 }
 
 body {
-  padding: 50px;
+  padding: 25px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  height: 100%;
 }
 
 a {
@@ -98,4 +103,20 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 
 #strengthText {
   padding: 5px 0 25px 0;
+}
+
+.hideMe {
+  display: none;
+}
+
+.hideDates {
+  display: none;
+}
+
+.hideLabel {
+  display: none;
+}
+
+#myChart {
+  height: 50vh;
 }
