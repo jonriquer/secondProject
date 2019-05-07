@@ -1,0 +1,19 @@
+<h1>You are editing a trade for {{stockTicker}} stock</h1>
+{{!-- <div class="hideLabel"> {{ theLabel}} </div> --}}
+<form action="" method="post">
+  <div>
+      <input type="radio" id="buy"
+      name="tradeType" value="Bought">
+      <label for="Buy">Buy</label>
+      <input type="radio" id="sell"
+      name="tradeType" value="Sold">
+      <label for="Sold">Sell</label>
+  </div>
+  <input type="text" value= "{{stock.ticker}}" name="ticker"> 
+  <input type="number" placeholder="Enter Current Price" name="price" value= "{{stock.price}}">
+  <input type="number" placeholder="Enter Quantity" name="shares" value= "{{stock.shares}}">
+  <button type="submit">Edit Trade</button>
+</form>
+<form action="/userHome" method="post">
+  <button type="submit">Delete Trade</button>
+</form>

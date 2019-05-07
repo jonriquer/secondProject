@@ -3,10 +3,10 @@ const Schema   = mongoose.Schema;
 
 const stockSchema = new Schema({
   user: { type : Schema.Types.ObjectId, ref: 'User' },
+  tradeType: String,
   ticker: String,
   price: Number,
-  marketCap: Number,
-  peRatio: Number
+  shares: Number
 } 
   // {
   //   timestamps: true

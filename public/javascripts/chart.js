@@ -19,12 +19,12 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: datesArray,
+        labels: datesArray.slice(0, 60),
         datasets: [{
             label: tickerLabel,
             data: newDataArray,
             backgroundColor: [
-              'rgba(54, 162, 235, 0.3)'
+              'rgba(231, 114, 17, 0.8)'
                 // 'rgba(255, 99, 132, 0.4)',
                 // 'rgba(255, 206, 86, 0.2)',
                 // 'rgba(75, 192, 192, 0.2)',

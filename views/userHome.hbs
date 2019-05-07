@@ -1,34 +1,47 @@
-<div class="page-container">
-<div>
-  <h1>User Portal</h1>
-  <h2>You are in a session!</h2>
-</div>
 
-<form id="tickerSearchBar" action="/userHome/query" method="GET">
-    <label for="stockTicker">Stock Ticker</label><br>
-    <input id="Ticker" type="text" value="aapl" name="stockTicker" placeholder="Enter Your Stock">
-</form>
+ 
+  
+    <h1>Track your Trades</h1>
+    <h2>Never forget an entry/exit!</h2>
+
+    <form id="tickerSearchBar" action="/userHome/query" method="GET">
+      <label for="stockTicker">Stock Ticker</label><br>
+      <input id="Ticker" type="text" value="" name="stockTicker" placeholder="Enter Your Stock">
+    </form>
+    
 {{query}}
-<button><a href="/stock?stockTicker={{stockTicker}}">Record Buy</a></button>
-<button><a href="/stock">Record Sell</a></button>
+<button><a href="/stock?stockTicker={{stockTicker}}">Record Trade</a></button></br>
+
+
+<ul class="list-group list-group-flush">
+{{#each myStocks}}
+<li class="list-group-item watchlistSpacer">
+  <div>
+    {{tradeType}}
+    {{shares}} shares of 
+    {{ticker}} @ 
+    {{price}}
+ </div>
+  
+  <div>
+    <!--<form class="btninline" action="/editTrade?tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}" method="GET"><button>Edit</button></form>-->
+    <a href="/editTrade?_id={{_id}}&tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}"><button>Edit</button></a>
+    <form class="btninline" action="/stock/delete/{{_id}}" method="POST"><button>Delete</button></form>
+  </div>
+  </li>
+  {{!-- </br> --}}
+{{/each}}
+  </ul>
+
+
 
 {{#if financeData}}
   <div class="hideMe"> {{theData}} </div>
   <div class="hideDates"> {{theDates}} </div>
   <div class="hideLabel"> {{theLabel}} </div>
-  {{!-- <div id="infoPanel">
-    {{#each apiInfo}}
-      Key: {{@key}} Value = {{this.[4. close]}}<br>
-    {{/each}}
-  </div> --}}
-<canvas id="myChart" width="350" height="150"></canvas>
-
+  
+<canvas id="myChart"></canvas>
 {{/if}}
 
 
-{{#each myStocks}}
-  {{ticker}}
-  {{price}}
-{{/each}}
-</div>
   <script src="/javascripts/chart.js"></script>  

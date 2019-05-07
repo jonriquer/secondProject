@@ -1,28 +1,26 @@
-<div class="page-container">
+<div class="container-fluid signupContainer">
+  <div id="signupForm">
   <form id="form" action="/signup" method="POST">
+    
     <label for="username">Username</label><br>
-    <input type="text" name="username"
-      placeholder="Your username">
+    <input type="text" name="username" placeholder="Your username">
 
     <label for="password">Password</label><br>
     <input type="password" id="password" name="password" placeholder="********">
 
     <div class="meter-container"><meter max="4" id="strengthMeter"></meter></div>
     <div id="strengthText"></div>
-    {{!-- <ul id="password-text">
-      <li>Use 6-64 characters.</li>
-      <li>Include atleast one number or symbol.</li>
-    </ul> --}}
 
     <button type="submit">Create account</button>
-  </form>
 
+  </form>
+  </div>
   {{#if errorMessage}}
   <div class="error-message">{{ errorMessage }}</div>
   {{/if}}
+
 </div>
 
 <script src="/javascripts/passwordStrength.js"></script>
 
   
-{{!-- <script src="/javascripts/passwordStrength.js"></script> --}}
