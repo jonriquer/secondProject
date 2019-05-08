@@ -112,7 +112,7 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
   width: 100vw;
   position: fixed;
   display: flex;
-  
+  z-index: 1;
 }
 
 .navBarContainer a {
@@ -131,24 +131,6 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
   background-repeat: no-repeat;
   background-color: rgb(118, 59, 11);
 }
-
-// .navBarAuth {
-//   margin-top:100px;
-//   background-color: rgb(239, 134, 17);
-//   padding: 12px;
-//   width: 100vw;
-//   position: relative;
-//   display: flex;
-//   color: white;
-//   margin: 0 auto;
-// }
-
-// .navBarAuth a {
-//   color: white;
-//   padding: 10px;
-//   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-//   font-size: 18px;
-// }
 
 .authContainer {
   display: flex;
@@ -175,30 +157,37 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 
 }
 
-#userHomeTitle h1{
+.userHomeTitle h1{
   padding: 70px 40px 0 0;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 5vw;
+  font-size: 5.5vw;
   letter-spacing: -1px;
   font-weight: bold;
   text-align: right;
 }
 
+.userHomeTitle h2 {
+  color: white; 
+  float: right;
+  font-size: 3.5vw;
+  margin-right: 35px; 
+}
+
 .watchlist {
-  padding-right: 25px;
+  margin-top: 20px;
+  // padding-right: 25px;
   display: flex;
-  justify-content: space-between;
-  // float: right;
-  padding-left: 30vw;
-  width: 40vw;
+  // justify-content: center !important;
+  padding-left: 25vw;
+  width: 45vw;
   flex-direction: column;
 }
 
 .watchlistSpacer {
   display: flex !important;
   align-items: center;
-  width: 37vw;
+  width: 45vw;
   justify-content: space-between;
 }
 
@@ -211,17 +200,28 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 }
 
 
-#myChart {
-  height: 60vh !important;
-  width: 50vw !important;  
+// #myChart {
+//   height: 60vh !important;
+//   width: 50vw !important;  
+//   float: left;
+//   margin-top: -400px;
+// }
+
+.chart {
+  // width: 50vw !important;
+  // height: 60vh !important;
+  // width: 50vw;
+  // height: 60vh;
+  // float: left;
+  // margin-top: -450px;
 }
 
 .recordTrade  {
-  margin-right: 25px;
+  margin-left: 45px;
   width: 37vw;
   text-align: center;
-  float: right;
-  justify-content: center;
+  // float: right;
+  justify-items: center !important;
 }
 
 .recordTrade a {
@@ -237,10 +237,26 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 
   .navBarContainer {
     width: 100vw !important;
+    height: 7vh; 
   }
 
   .navBar {
     width: 100vw !important;
+    font-size: 3.5vw;
+  }
+
+  .navBar a {
+    font-size: 3vw;
+  }
+
+  .userHomeTitle h1 {
+   padding: 50px 20px 0 0;
+   font-size: 7vw;
+  }
+
+  .userHomeTitle h2 {
+    margin-right: 15px;
+    font-size: 6vw;
   }
 
   .watchlist {
@@ -288,4 +304,51 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
     width: 90vw;
     // margin-left: 15px;
   }
+
+//   // Set a variable to run the if statement against
+// $boolean: true !default
+
+// =simple-mixin
+//   @if $boolean
+//     @debug "$boolean is #{$boolean}"
+//     display: block
+//   @else
+//     @debug "$boolean is #{$boolean}"
+//     display: none
+
+  // .chart-container {
+  //   width: 100vw;
+  //   height: 25vh;
+  // }
+
+  // .chart {
+  //   margin-left: 25vw;
+
+  //   width: 300px;
+  //   height: 100px !important;
+  //   padding: 0;
+  // }
+
+  // canvas {
+  //   position: absolute;
+  //   // top: 300px;
+  //   height: 100px !important;
+  //   width: 100vw !important;
+  // }
+
+  canvas.chart{
+    border:1px solid red;
+    width:100vw;
+    position:relative;
+    //z-index:-1;
+  }
+}
+
+
+
+
+@media screen and (min-width: 1250px) {
+  // // .watchlist {
+  // // // padding: 0px;
+  // }
 }

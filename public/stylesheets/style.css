@@ -99,7 +99,8 @@ meter[value="4"]::-webkit-meter-optimum-value {
   padding: 10px;
   width: 100vw;
   position: fixed;
-  display: flex; }
+  display: flex;
+  z-index: 1; }
 
 .navBarContainer a {
   color: white;
@@ -137,27 +138,32 @@ meter[value="4"]::-webkit-meter-optimum-value {
   background-position: center;
   background-size: cover; }
 
-#userHomeTitle h1 {
+.userHomeTitle h1 {
   padding: 70px 40px 0 0;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 5vw;
+  font-size: 5.5vw;
   letter-spacing: -1px;
   font-weight: bold;
   text-align: right; }
 
+.userHomeTitle h2 {
+  color: white;
+  float: right;
+  font-size: 3.5vw;
+  margin-right: 35px; }
+
 .watchlist {
-  padding-right: 25px;
+  margin-top: 20px;
   display: flex;
-  justify-content: space-between;
-  padding-left: 30vw;
-  width: 40vw;
+  padding-left: 25vw;
+  width: 45vw;
   flex-direction: column; }
 
 .watchlistSpacer {
   display: flex !important;
   align-items: center;
-  width: 37vw;
+  width: 45vw;
   justify-content: space-between; }
 
 .list-group-item {
@@ -166,16 +172,11 @@ meter[value="4"]::-webkit-meter-optimum-value {
 .btninline {
   display: inline-flex; }
 
-#myChart {
-  height: 60vh !important;
-  width: 50vw !important; }
-
 .recordTrade {
-  margin-right: 25px;
+  margin-left: 45px;
   width: 37vw;
   text-align: center;
-  float: right;
-  justify-content: center; }
+  justify-items: center !important; }
 
 .recordTrade a {
   color: white;
@@ -183,9 +184,19 @@ meter[value="4"]::-webkit-meter-optimum-value {
 
 @media screen and (max-width: 600px) {
   .navBarContainer {
-    width: 100vw !important; }
+    width: 100vw !important;
+    height: 7vh; }
   .navBar {
-    width: 100vw !important; }
+    width: 100vw !important;
+    font-size: 3.5vw; }
+  .navBar a {
+    font-size: 3vw; }
+  .userHomeTitle h1 {
+    padding: 50px 20px 0 0;
+    font-size: 7vw; }
+  .userHomeTitle h2 {
+    margin-right: 15px;
+    font-size: 6vw; }
   .watchlist {
     display: flex;
     justify-content: center;
@@ -214,6 +225,10 @@ meter[value="4"]::-webkit-meter-optimum-value {
     font-size: 5vw; }
   .recordTrade {
     margin-left: 15px;
-    width: 90vw; } }
+    width: 90vw; }
+  canvas.chart {
+    border: 1px solid red;
+    width: 100vw;
+    position: relative; } }
 
 /*# sourceMappingURL=style.css.map */

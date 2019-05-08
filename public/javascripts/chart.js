@@ -19,7 +19,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: datesArray.slice(0, 60),
+        labels: datesArray.slice(0, 60), display: false,
         datasets: [{
             label: tickerLabel,
             data: newDataArray,
@@ -44,6 +44,11 @@ var myChart = new Chart(ctx, {
     },
     options: {
         scales: {
+            xAxes: [{
+                ticks: {
+                    display: false
+                }
+            }],
             yAxes: [{
                 ticks: {
                     beginAtZero: false

@@ -1,6 +1,6 @@
 <div id="userHomeContainer">
 
-  <div id="userHomeTitle">
+  <div class="userHomeTitle">
     <h1>Track your Trades</h1>
     <h2>Never forget an entry/exit!</h2>
   </div>
@@ -46,7 +46,9 @@
     <div class="hideDates"> {{theDates}} </div>
     <div class="hideLabel"> {{theLabel}} </div>
     
-    <canvas id="myChart"></canvas>
+    {{!-- <div class="chart-container"> --}}
+      <canvas id="myChart" class="chart"></canvas>
+    {{!-- </div> --}}
   {{/if}}
 
 </div>
