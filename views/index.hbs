@@ -1,7 +1,94 @@
 <div class="container-fluid homeContainer">
+
   <div id="userHomeTitle">
-    <h1>Tracking trades </br>
-    is the key </br> 
-    to <i>success.</i></h1>
+    <h1> 
+      <i>Grow</i> your </br>
+      portfolio by </br> 
+      traking your </br>
+      <i>trades.</i>
+    </h1>
   </div>
+
+
+  {{!-- ====================== Sign up Modal ======================
+  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = --}}
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign Up!</h5>
+        </div>
+
+        <div class="modal-body">
+          <form id="form" action="/signup" method="POST">
+      
+            <label for="username">Username</label><br>
+            <input type="text" name="username" placeholder="Your username">
+
+            <label for="password">Password</label><br>
+            <input type="password" id="password" name="password" placeholder="********">
+
+            <div class="meter-container"><meter max="4" id="strengthMeter"></meter></div>
+            <div id="strengthText"></div>
+
+            <button type="submit" class="bg-warning border border-secondary">Create account</button>
+
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          {{!-- <button type="button" class="btn btn-primary bg-warning border border-secondary">Save changes</button> --}}
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {{!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+  ===================== End Sign uo Modal =================== --}}
+
+
+  {{!-- ======================= Sign In Modal ===================
+  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = --}}
+  <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+        </div>
+
+        <div class="modal-body">
+          <form action="/login" method="POST" id="form">
+      
+            <label for="username">Username</label>
+            <input value="" type="text" name="username">
+
+            <label for="password">Password</label>
+            <input value="" type="password" name="password">
+
+            {{#if errorMessage }}
+              <div class="error-message">{{ errorMessage }}</div>
+            {{/if}}
+
+            <button class="bg-warning border border-secondary">Sign in</button>
+
+            <p class="account-message">
+              Don't have an account? <a href= "/" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal">Sign up</a>
+            </p>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {{!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+  ======================= End Sign In Modal =================== --}}
+
 </div>
+<script src="/javascripts/passwordStrength.js"></script>

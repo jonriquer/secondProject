@@ -80,7 +80,6 @@ meter[value="4"]::-webkit-meter-optimum-value {
 .meter-container {
   background-color: rgba(0, 0, 0, 0.1);
   position: relative;
-  z-index: -1;
   height: .5em; }
 
 #strengthText {
@@ -95,30 +94,14 @@ meter[value="4"]::-webkit-meter-optimum-value {
 .hideLabel {
   display: none; }
 
-#myChart {
-  height: 60vh !important;
-  width: 40vw !important; }
-
-.list-group-item {
-  display: inline; }
-
-.btninline {
-  display: inline-flex; }
-
-.watchlistSpacer {
-  display: flex !important;
-  align-items: center;
-  width: 37vw;
-  justify-content: space-between; }
-
-#navBar {
+.navBarContainer {
   background-color: rgba(239, 134, 17, 0.8);
   padding: 10px;
   width: 100vw;
   position: fixed;
   display: flex; }
 
-#navBar a {
+.navBarContainer a {
   color: white;
   padding: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -128,27 +111,109 @@ meter[value="4"]::-webkit-meter-optimum-value {
   height: 100vh;
   width: 100vw;
   background-image: url("../images/indexBG.jpeg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #763b0b; }
+
+.authContainer {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../images/indexBG.jpeg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #763b0b; }
+
+#signupForm {
+  width: 100vw;
+  display: flex;
+  padding-top: 100px; }
+
+#userHomeContainer {
+  height: 100vh;
+  background-image: url("../images/userHome.jpeg");
   background-position: center;
   background-size: cover; }
 
 #userHomeTitle h1 {
-  float: right;
   padding: 70px 40px 0 0;
   color: white;
-  font-family: sans-serif;
-  font-size: 3.7em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 5vw;
   letter-spacing: -1px;
   font-weight: bold;
-  text-align: center; }
+  text-align: right; }
 
-.signupContainer {
-  height: 100vh;
-  width: 100vw;
-  background-image: url("../images/indexBG.jpeg");
-  background-position: center;
-  background-size: cover; }
+.watchlist {
+  padding-right: 25px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30vw;
+  width: 40vw;
+  flex-direction: column; }
 
-#signupForm {
-  padding-top: 100px; }
+.watchlistSpacer {
+  display: flex !important;
+  align-items: center;
+  width: 37vw;
+  justify-content: space-between; }
+
+.list-group-item {
+  display: inline; }
+
+.btninline {
+  display: inline-flex; }
+
+#myChart {
+  height: 60vh !important;
+  width: 50vw !important; }
+
+.recordTrade {
+  margin-right: 25px;
+  width: 37vw;
+  text-align: center;
+  float: right;
+  justify-content: center; }
+
+.recordTrade a {
+  color: white;
+  text-decoration: none; }
+
+@media screen and (max-width: 600px) {
+  .navBarContainer {
+    width: 100vw !important; }
+  .navBar {
+    width: 100vw !important; }
+  .watchlist {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    width: 100vw;
+    flex-direction: column; }
+  .watchlistSpacer {
+    width: 100vw !important;
+    padding: 0px; }
+  .list-group-item.watchlistSpacer {
+    width: 100vw;
+    font-size: 14px;
+    padding: 0px; }
+  .editBtn button {
+    margin-top: 7px !important;
+    width: 15vw;
+    height: 5vh;
+    font-size: 2vw !important;
+    text-align: center !important; }
+  .tradeInfo {
+    width: 55vw;
+    height: 10vh;
+    padding: 7px 0 5px 15px;
+    font-size: 3vw; }
+  .tradeInfo h5 {
+    font-size: 5vw; }
+  .recordTrade {
+    margin-left: 15px;
+    width: 90vw; } }
 
 /*# sourceMappingURL=style.css.map */

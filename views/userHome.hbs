@@ -1,47 +1,54 @@
+<div id="userHomeContainer">
 
- 
-  
+  <div id="userHomeTitle">
     <h1>Track your Trades</h1>
     <h2>Never forget an entry/exit!</h2>
-
-    <form id="tickerSearchBar" action="/userHome/query" method="GET">
-      <label for="stockTicker">Stock Ticker</label><br>
-      <input id="Ticker" type="text" value="" name="stockTicker" placeholder="Enter Your Stock">
-    </form>
-    
-{{query}}
-<button><a href="/stock?stockTicker={{stockTicker}}">Record Trade</a></button></br>
-
-
-<ul class="list-group list-group-flush">
-{{#each myStocks}}
-<li class="list-group-item watchlistSpacer">
-  <div>
-    {{tradeType}}
-    {{shares}} shares of 
-    {{ticker}} @ 
-    {{price}}
- </div>
-  
-  <div>
-    <!--<form class="btninline" action="/editTrade?tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}" method="GET"><button>Edit</button></form>-->
-    <a href="/editTrade?_id={{_id}}&tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}"><button>Edit</button></a>
-    <form class="btninline" action="/stock/delete/{{_id}}" method="POST"><button>Delete</button></form>
   </div>
-  </li>
-  {{!-- </br> --}}
-{{/each}}
-  </ul>
 
+  <form id="tickerSearchBar" action="/userHome/query" method="GET">
+    <label for="stockTicker">Stock Ticker</label><br>
+    <input id="Ticker" type="text" value="" name="stockTicker" placeholder="Enter Your Stock">
+  </form>
+    
+  {{query}}
 
+  <div class="watchlist">
+    <button class="btn btn-primary bg-secondary recordTrade">
+      <a href="/stock?stockTicker={{stockTicker}}">Record New Trade</a>
+    </button></br>
 
-{{#if financeData}}
-  <div class="hideMe"> {{theData}} </div>
-  <div class="hideDates"> {{theDates}} </div>
-  <div class="hideLabel"> {{theLabel}} </div>
+    <ul class="list-group list-group-flush">
+      {{#each myStocks}}
+        <li class="list-group-item watchlistSpacer">
+          <div class="tradeInfo">
+            <h5>{{tradeType}}</h5>
+            {{shares}} shares of 
+            {{ticker}} @ 
+            ${{price}}
+          </div>
   
-<canvas id="myChart"></canvas>
-{{/if}}
+          <div class="editBtn">
+            <!--<form class="btninline" action="/editTrade?tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}" method="GET"><button>Edit</button></form>-->
+            <a href="/editTrade?_id={{_id}}&tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}">
+            <button class="btn btn-primary bg-warning">Edit</button>
+            </a>
+            <form class="btninline" action="/stock/delete/{{_id}}" method="POST">
+            <a href="/userHome"><button class="btn btn-primary bg-danger">Delete</button></a>
+            </form>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
 
+  {{#if financeData}}
+    <div class="hideMe"> {{theData}} </div>
+    <div class="hideDates"> {{theDates}} </div>
+    <div class="hideLabel"> {{theLabel}} </div>
+    
+    <canvas id="myChart"></canvas>
+  {{/if}}
 
-  <script src="/javascripts/chart.js"></script>  
+</div>
+
+<script src="/javascripts/chart.js"></script>  
