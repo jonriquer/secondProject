@@ -89,6 +89,11 @@ router.post("/stock", isLoggedIn, (req, res, next) => {
   res.redirect("/userHome");
 });
 
+
+
+
+
+//  ---------------------- EDIT -----------------------------------------------
 router.get("/editTrade", isLoggedIn, (req, res, next) => {
   console.log("THIS IS REQ.SESSION.CURRENT USER====>>>>>",req.session.currentUser, req.query, req.params, req.body)
   res.render("editTrade", {
@@ -97,14 +102,24 @@ router.get("/editTrade", isLoggedIn, (req, res, next) => {
   });
 });
 
+
+
 router.post("/editTrade", isLoggedIn, (req, res, next) => {
-  console.log("THIS IS REQ.SESSION.CURRENT USER==saDasd==>>>>>",req.session.currentUser, req.body, req.query, req.params)
+  console.log(req.body);
+  // console.log("THIS IS REQ.SESSION.CURRENT USER==saDasd==>>>>>",req.session.currentUser, req.body, req.query, req.params)
   let stock = req.body; 
-  console.log(stock, req.query._id)
-  Stock.findByIdAndUpdate(req.query._id,  stock ).then(resFromDB=>{
+  console.log(stock, req.body.identification)
+  Stock.findByIdAndUpdate(req.body.identification,  stock ).then(resFromDB=>{
     res.redirect('/userHome')
   }).catch(err=>console.error(err))
 });
+
+
+
+
+
+
+
 // Delete 
 router.post('/stock/delete/:stockId', (req,res,next) => {
   // console.log("running delete stock route <<<<<<<<<")

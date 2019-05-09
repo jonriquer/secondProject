@@ -297,4 +297,7 @@ meter[value="4"]::-webkit-meter-optimum-value {
   .modal1, .modal2 {
     width: 100% !important; } }
 
+.identification, #identification {
+  display: none; }
+
 /*# sourceMappingURL=style.css.map */
