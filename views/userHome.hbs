@@ -5,18 +5,31 @@
     <h2>Never forget an entry/exit!</h2>
   </div>
 
-  <form id="tickerSearchBar" action="/userHome/query" method="GET">
-    <label for="stockTicker">Stock Ticker</label><br>
-    <input id="Ticker" type="text" value="" name="stockTicker" placeholder="Enter Your Stock">
-  </form>
-    
+  <div class="tickerSearchBar">
+    <form id="tickerSearchBar" action="/userHome/query" method="GET">
+      <label for="stockTicker">Quick Quote</label><br>
+      <input id="Ticker" type="text" value="" name="stockTicker" placeholder="Enter Ticker">
+    </form>
+  </div>
+
   {{query}}
 
-  <div class="watchlist">
-    <button class="btn btn-primary bg-secondary recordTrade">
-      <a href="/stock?stockTicker={{stockTicker}}">Record New Trade</a>
-    </button></br>
+  {{#if financeData}}
+    <div class="hideMe"> {{theData}} </div>
+    <div class="hideDates"> {{theDates}} </div>
+    <div class="hideLabel"> {{theLabel}} </div>
+    
+    {{!-- <div class="chart-container"> --}}
+      <canvas id="myChart" class="chart"></canvas>
+    {{!-- </div> --}}
+  {{/if}}
 
+  <div class="watchlist">
+    <button class="btn btn-primary bg-secondary recordTrade" data-toggle="modal" data-target="#exampleModal3">
+      {{!-- <a href="/stock?stockTicker={{stockTicker}}">Record New Trade</a> --}}
+      Record New Trade
+    </button></br>
+ 
     <ul class="list-group list-group-flush">
       {{#each myStocks}}
         <li class="list-group-item watchlistSpacer">
@@ -29,9 +42,9 @@
   
           <div class="editBtn">
             <!--<form class="btninline" action="/editTrade?tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}" method="GET"><button>Edit</button></form>-->
-            <a href="/editTrade?_id={{_id}}&tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}">
-            <button class="btn btn-primary bg-warning">Edit</button>
-            </a>
+            {{!-- <a href="/editTrade?_id={{_id}}&tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}"> --}}
+            <button class="btn btn-primary bg-warning" data-toggle="modal" data-target="#exampleModal4">Edit</button>
+            {{!-- </a> --}}
             <form class="btninline" action="/stock/delete/{{_id}}" method="POST">
             <a href="/userHome"><button class="btn btn-primary bg-danger">Delete</button></a>
             </form>
@@ -41,16 +54,121 @@
     </ul>
   </div>
 
-  {{#if financeData}}
-    <div class="hideMe"> {{theData}} </div>
-    <div class="hideDates"> {{theDates}} </div>
-    <div class="hideLabel"> {{theLabel}} </div>
-    
-    {{!-- <div class="chart-container"> --}}
-      <canvas id="myChart" class="chart"></canvas>
-    {{!-- </div> --}}
-  {{/if}}
+
 
 </div>
 
+{{!-- =========================================================================================
+= = = = = = = = = = = = = = = = = = Record Trade Modal = = = = = = = = = = = = = = = = = = = = 
+=========================================================================================== --}}
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Record Your Trade</h5>
+        </div>
+
+        <div class="modal-body addTrade">
+          <form class="modal3" action="/stock" method="post">
+
+            <div class="form-group">
+                <input type="radio" id="buy" class="form-contorl"
+                name="tradeType" value="Bought">
+                <label for="Buy">Buy</label>
+                <input type="radio" id="sell" class="form-contorl"
+                name="tradeType" value="Sold">
+                <label for="Sold">Sell</label>
+            </div>
+
+            <div class="form-group">
+              <label for="ticker">Ticker</label>
+              <input class="form-control" type="text" value= "{{stockTicker}}" name="ticker" placeholder="Enter Stock Ticker"> 
+            </div>
+
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input class="form-control" type="number" placeholder="Enter Current Price" name="price">
+            </div>
+
+            <div class="form-group">
+              <label for="shares">Shares</label>
+              <input class="form-control" type="number" placeholder="Enter Quantity" name="shares"> 
+            </div>
+
+            <button class="btn bg-warning border border-secondary" type="submit">Add Trade</button>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary addTradeBtn" data-dismiss="modal">Close</button>
+          {{!-- <button type="button" class="btn btn-primary bg-warning border border-secondary">Save changes</button> --}}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  {{!-- =======================================================================================
+= = = = = = = = = = = = = = = = = = End Record Trade Modal = = = = = = = = = = =  = = = = = = = 
+========================================================================================= --}}
+
+
+
+{{!-- =========================================================================================
+= = = = = = = = = = = = = = = = = = Edit Trade Modal = = = = = = = = = = = = = = = = = = = = 
+=========================================================================================== --}}
+
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Your Trade</h5>
+        </div>
+
+        <div class="modal-body">
+          <form class="modal3" action="" method="post">
+
+            <div class="form-group">
+                <input type="radio" id="buy" class="form-contorl"
+                name="tradeType" value="Bought">
+                <label for="Buy">Buy</label>
+                <input type="radio" id="sell" class="form-contorl"
+                name="tradeType" value="Sold">
+                <label for="Sold">Sell</label>
+            </div>
+
+            <div class="form-group">
+              <label for="ticker">Ticker</label>
+              <input class="form-control" type="text" value= "{{stock.stockTicker}}" name="ticker"> 
+            </div>
+
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input class="form-control" type="number" placeholder="Enter Current Price" name="price">
+            </div>
+
+            <div class="form-group">
+              <label for="shares">Shares</label>
+              <input class="form-control" type="number" placeholder="Enter Quantity" name="shares"> 
+            </div>
+
+            <button class="btn bg-warning border border-secondary" type="submit">Edit Trade</button>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary addTradeBtn" data-dismiss="modal">Close</button>
+          {{!-- <button type="button" class="btn btn-primary bg-warning border border-secondary">Save changes</button> --}}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+{{!-- =========================================================================================
+= = = = = = = = = = = = = = = = = = End Edit Trade Modal = = = = = = = = = = = = = = = = = = = = 
+=========================================================================================== --}}
 <script src="/javascripts/chart.js"></script>  

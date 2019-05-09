@@ -80,13 +80,11 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 
 #strengthMeter {
   transition: all 1s;
-
 }
 
 .meter-container{
   background-color: rgba(0, 0, 0, 0.1);
   position: relative;
-  // z-index: -1;
   height: .5em;
 }
 
@@ -165,6 +163,12 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
   letter-spacing: -1px;
   font-weight: bold;
   text-align: right;
+  z-index: 2;
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+  font-weight: bolder;
 }
 
 .userHomeTitle h2 {
@@ -172,13 +176,37 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
   float: right;
   font-size: 3.5vw;
   margin-right: 35px; 
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+  font-weight: bolder;
 }
+
+.tickerSearchBar {
+  margin-left: 45px; 
+}
+
+.tickerSearchBar label {
+  color: white; 
+  font-size: 3vw;
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+  font-weight: bolder;
+}
+
+.tickerSearchBar input {
+  width: 20vw;
+  font-size: 2vw; 
+  text-align: center;
+}
+
 
 .watchlist {
   margin-top: 20px;
-  // padding-right: 25px;
   display: flex;
-  // justify-content: center !important;
   padding-left: 25vw;
   width: 45vw;
   flex-direction: column;
@@ -199,21 +227,11 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
   display: inline-flex
 }
 
-
-// #myChart {
-//   height: 60vh !important;
-//   width: 50vw !important;  
-//   float: left;
-//   margin-top: -400px;
-// }
-
 .chart {
-  // width: 50vw !important;
-  // height: 60vh !important;
-  // width: 50vw;
-  // height: 60vh;
-  // float: left;
-  // margin-top: -450px;
+  position: absolute;
+  left:0;
+  width:50vw !important;
+  height:60vh !important;
 }
 
 .recordTrade  {
@@ -227,6 +245,10 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 .recordTrade a {
   color: white;
   text-decoration: none; 
+}
+
+.addTrade button{
+ margin-left: 27%;
 }
 
 // =======================================
@@ -252,31 +274,55 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
   .userHomeTitle h1 {
    padding: 50px 20px 0 0;
    font-size: 7vw;
+   color: black;
+   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: .5px;
+   -webkit-text-stroke-color: black;
+   font-weight: bolder;
   }
 
   .userHomeTitle h2 {
     margin-right: 15px;
     font-size: 6vw;
+    color: black;
+   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: .5px;
+   -webkit-text-stroke-color: black;
+   font-weight: bolder;
+  }
+
+  .tickerSearchBar {
+    margin-left: 35px; 
+  }
+
+  .tickerSearchBar label {
+    font-size: 6vw;
+  }
+
+  .tickerSearchBar input {
+    width: 40vw;
+    font-size: 4vw; 
+    text-align: center;
   }
 
   .watchlist {
     // padding-right: 25px;
     display: flex;
     justify-content: center;
-    padding: 0px;
-    width: 100vw;
+    padding: 0px !important;
+    width: 90vw;
     flex-direction: column;
   }
   
   .watchlistSpacer {
-    width: 100vw !important;
-    padding: 0px;
+    width: 90vw !important;
+    padding: 0px !important;
   }
 
   .list-group-item.watchlistSpacer {
-    width: 100vw;
+    width: 90vw;
     font-size: 14px;
-    padding: 0px;
+    padding: 0px !important;
   }
 
   .editBtn button {
@@ -292,7 +338,6 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
     height: 10vh;
     padding: 7px 0 5px 15px;
     font-size: 3vw;
-    
   }
 
   .tradeInfo h5 {
@@ -300,55 +345,23 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
   }
 
   .recordTrade {
-    margin-left: 15px;
+    margin-top: 10px;
+    margin-left: 0px;
     width: 90vw;
     // margin-left: 15px;
   }
 
-//   // Set a variable to run the if statement against
-// $boolean: true !default
-
-// =simple-mixin
-//   @if $boolean
-//     @debug "$boolean is #{$boolean}"
-//     display: block
-//   @else
-//     @debug "$boolean is #{$boolean}"
-//     display: none
-
-  // .chart-container {
-  //   width: 100vw;
-  //   height: 25vh;
-  // }
-
-  // .chart {
-  //   margin-left: 25vw;
-
-  //   width: 300px;
-  //   height: 100px !important;
-  //   padding: 0;
-  // }
-
-  // canvas {
-  //   position: absolute;
-  //   // top: 300px;
-  //   height: 100px !important;
-  //   width: 100vw !important;
-  // }
-
   canvas.chart{
-    border:1px solid red;
-    width:100vw;
+    // background:rgba(0,0,0,0.5);
+    margin-left: -35px;
     position:relative;
-    //z-index:-1;
+    padding-right: 0px !important;
+    display: block;
+    width:105vw !important;
+    height: 40vh !important;
   }
-}
 
-
-
-
-@media screen and (min-width: 1250px) {
-  // // .watchlist {
-  // // // padding: 0px;
-  // }
+  .modal1, .modal2 {
+    width: 100% !important; 
+  }
 }

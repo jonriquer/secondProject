@@ -145,13 +145,44 @@ meter[value="4"]::-webkit-meter-optimum-value {
   font-size: 5.5vw;
   letter-spacing: -1px;
   font-weight: bold;
-  text-align: right; }
+  text-align: right;
+  z-index: 2;
+  color: black;
+  -webkit-text-fill-color: white;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+  font-weight: bolder; }
 
 .userHomeTitle h2 {
   color: white;
   float: right;
   font-size: 3.5vw;
-  margin-right: 35px; }
+  margin-right: 35px;
+  color: black;
+  -webkit-text-fill-color: white;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+  font-weight: bolder; }
+
+.tickerSearchBar {
+  margin-left: 45px; }
+
+.tickerSearchBar label {
+  color: white;
+  font-size: 3vw;
+  color: black;
+  -webkit-text-fill-color: white;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+  font-weight: bolder; }
+
+.tickerSearchBar input {
+  width: 20vw;
+  font-size: 2vw;
+  text-align: center; }
 
 .watchlist {
   margin-top: 20px;
@@ -172,6 +203,12 @@ meter[value="4"]::-webkit-meter-optimum-value {
 .btninline {
   display: inline-flex; }
 
+.chart {
+  position: absolute;
+  left: 0;
+  width: 50vw !important;
+  height: 60vh !important; }
+
 .recordTrade {
   margin-left: 45px;
   width: 37vw;
@@ -181,6 +218,9 @@ meter[value="4"]::-webkit-meter-optimum-value {
 .recordTrade a {
   color: white;
   text-decoration: none; }
+
+.addTrade button {
+  margin-left: 27%; }
 
 @media screen and (max-width: 600px) {
   .navBarContainer {
@@ -193,23 +233,43 @@ meter[value="4"]::-webkit-meter-optimum-value {
     font-size: 3vw; }
   .userHomeTitle h1 {
     padding: 50px 20px 0 0;
-    font-size: 7vw; }
+    font-size: 7vw;
+    color: black;
+    -webkit-text-fill-color: white;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: black;
+    font-weight: bolder; }
   .userHomeTitle h2 {
     margin-right: 15px;
+    font-size: 6vw;
+    color: black;
+    -webkit-text-fill-color: white;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: black;
+    font-weight: bolder; }
+  .tickerSearchBar {
+    margin-left: 35px; }
+  .tickerSearchBar label {
     font-size: 6vw; }
+  .tickerSearchBar input {
+    width: 40vw;
+    font-size: 4vw;
+    text-align: center; }
   .watchlist {
     display: flex;
     justify-content: center;
-    padding: 0px;
-    width: 100vw;
+    padding: 0px !important;
+    width: 90vw;
     flex-direction: column; }
   .watchlistSpacer {
-    width: 100vw !important;
-    padding: 0px; }
+    width: 90vw !important;
+    padding: 0px !important; }
   .list-group-item.watchlistSpacer {
-    width: 100vw;
+    width: 90vw;
     font-size: 14px;
-    padding: 0px; }
+    padding: 0px !important; }
   .editBtn button {
     margin-top: 7px !important;
     width: 15vw;
@@ -224,11 +284,17 @@ meter[value="4"]::-webkit-meter-optimum-value {
   .tradeInfo h5 {
     font-size: 5vw; }
   .recordTrade {
-    margin-left: 15px;
+    margin-top: 10px;
+    margin-left: 0px;
     width: 90vw; }
   canvas.chart {
-    border: 1px solid red;
-    width: 100vw;
-    position: relative; } }
+    margin-left: -35px;
+    position: relative;
+    padding-right: 0px !important;
+    display: block;
+    width: 105vw !important;
+    height: 40vh !important; }
+  .modal1, .modal2 {
+    width: 100% !important; } }
 
 /*# sourceMappingURL=style.css.map */
