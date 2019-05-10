@@ -147,12 +147,12 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
   padding-top: 100px;
 }
 
-#userHomeContainer {
+.userHomeContainer {
   height: 100vh;
   background-image: url("../images/userHome.jpeg");
   background-position: center;
   background-size: cover;
-
+  position: relative;
 }
 
 .userHomeTitle h1{
@@ -184,7 +184,7 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 }
 
 .tickerSearchBar {
-  margin-left: 45px; 
+  margin-left: 65px; 
 }
 
 .tickerSearchBar label {

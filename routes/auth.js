@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
+  res.render("/userHome");
 });
 
 router.post("/signup", (req, res, next) => {
@@ -21,12 +21,12 @@ router.post("/signup", (req, res, next) => {
   const hashPass = bcrypt.hashSync(password, salt);
 
   //===================== Sign Up Validations =====================
-    if (username === "" || password === "") {
-    res.render("auth/signup", {
-      errorMessage: "Indicate a username and a password to sign up"
-    });
-    return;
-    }
+    // if (username === "" || password === "") {
+    // res.render("auth/signup", {
+    //   errorMessage: "Indicate a username and a password to sign up"
+    // });
+    // return;
+    // }
 
     User.findOne({ "username": username })
     .then(user => {

@@ -24,10 +24,10 @@
           <form id="form" class="modal1" action="/signup" method="POST">
       
             <label for="username">Username</label><br>
-            <input type="text" name="username" placeholder="Your username">
+            <input type="text" name="username" placeholder="Your username" required>
 
             <label for="password">Password</label><br>
-            <input type="password" id="password" name="password" placeholder="********">
+            <input type="password" id="password" name="password" placeholder="********" required>
 
             <div class="meter-container"><meter max="4" id="strengthMeter"></meter></div>
             <div id="strengthText"></div>
@@ -63,10 +63,10 @@
           <form action="/login" class="modal2" method="POST" id="form">
       
             <label for="username">Username</label>
-            <input value="" type="text" name="username">
+            <input value="" type="text" name="username" required>
 
             <label for="password">Password</label>
-            <input value="" type="password" name="password">
+            <input value="" type="password" name="password" required>
 
             {{#if errorMessage }}
               <div class="error-message">{{ errorMessage }}</div>
