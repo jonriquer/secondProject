@@ -223,7 +223,7 @@ meter[value="4"]::-webkit-meter-optimum-value {
 .addTrade button {
   margin-left: 27%; }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 768px) {
   .navBarContainer {
     width: 100vw !important;
     height: 7vh; }
@@ -289,11 +289,11 @@ meter[value="4"]::-webkit-meter-optimum-value {
     margin-left: 0px;
     width: 90vw; }
   canvas.chart {
-    margin-left: -35px;
+    margin-left: -25px;
     position: relative;
     padding-right: 0px !important;
     display: block;
-    width: 105vw !important;
+    width: 100vw !important;
     height: 40vh !important; }
   .modal1, .modal2 {
     width: 100% !important; } }

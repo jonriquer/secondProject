@@ -255,7 +255,7 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 //= = = = = = = Media Query = = = = = = =
 //========================================
 
-@media screen and (max-width: 600px) {
+@media (max-width: 768px) {
 
   .navBarContainer {
     width: 100vw !important;
@@ -353,11 +353,11 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 
   canvas.chart{
     // background:rgba(0,0,0,0.5);
-    margin-left: -35px;
+    margin-left: -25px;
     position:relative;
     padding-right: 0px !important;
     display: block;
-    width:105vw !important;
+    width:100vw !important;
     height: 40vh !important;
   }
 
