@@ -1,14 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap");
 * {
-  margin: 0 auto; }
+  margin: 0 auto;
+  font-family: "Raleway", sans-serif; }
 
 body {
-  font: 14px "Lucida Grande"; }
+  background-color: #f1f9ff; }
+
+#bodyCont_MAIN {
+  background-color: #f1f9ff;
+  margin: 0; }
 
 #form {
   width: 380px; }
 
 #form label {
-  color: #666;
+  color: red;
   display: inline-block;
   margin-bottom: 10px;
   text-align: center;
@@ -95,7 +101,8 @@ meter[value="4"]::-webkit-meter-optimum-value {
   display: none; }
 
 .navBarContainer {
-  background-color: rgba(239, 134, 17, 0.8);
+  background-color: orange;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
   padding: 10px;
   width: 100vw;
   position: fixed;
@@ -133,11 +140,15 @@ meter[value="4"]::-webkit-meter-optimum-value {
   padding-top: 100px; }
 
 .userHomeContainer {
+  width: 100vw;
   height: 100vh;
-  background-image: url("../images/userHome.jpeg");
+  display: flex;
+  align-items: center;
+  background-color: #444;
   background-position: center;
   background-size: cover;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 .userHomeTitle h1 {
   padding: 70px 40px 0 0;
@@ -168,51 +179,69 @@ meter[value="4"]::-webkit-meter-optimum-value {
   font-weight: bolder; }
 
 .tickerSearchBar {
-  margin-left: 65px; }
+  background: white;
+  padding: 35px;
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.1); }
 
 .tickerSearchBar label {
-  color: white;
+  color: gray;
   font-size: 3vw;
-  color: black;
-  -webkit-text-fill-color: white;
-  /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: .5px;
-  -webkit-text-stroke-color: black;
-  font-weight: bolder; }
+  font-weight: lighter; }
 
 .tickerSearchBar input {
-  width: 20vw;
   font-size: 2vw;
   text-align: center; }
 
-.watchlist {
-  margin-top: 20px;
-  display: flex;
-  padding-left: 25vw;
-  width: 45vw;
-  flex-direction: column; }
+#tickerSearchBar {
+  text-align: center; }
 
-.watchlistSpacer {
-  display: flex !important;
+.watchlist {
+  background-color: #f1f9ff;
+  padding: 20px;
+  display: flex;
+  width: 80%;
+  max-width: 750px;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center; }
+
+.watchlistTitle {
+  color: #f5f5f5; }
+
+.watchlistSpacer:hover {
+  transform: scale(1.01);
+  box-shadow: 5px 5px 25px rgba(87, 91, 97, 0.3); }
+
+#stock_list {
+  overflow-y: scroll; }
+
+#stock_list li {
+  width: 95%;
+  display: flex;
+  align-items: center; }
+
+.list-group.list-group-flush {
   align-items: center;
-  width: 45vw;
-  justify-content: space-between; }
+  height: 50vh;
+  width: 100%;
+  overflow: scroll;
+  padding: 55px; }
 
 .list-group-item {
-  display: inline; }
+  display: inline;
+  padding: 15px;
+  border-radius: 6px; }
 
 .btninline {
   display: inline-flex; }
 
 .chart {
-  position: absolute;
   left: 0;
-  width: 50vw !important;
-  height: 60vh !important; }
+  width: 70vw !important;
+  height: 60vh !important;
+  overflow: scroll; }
 
 .recordTrade {
-  margin-left: 45px;
-  width: 37vw;
   text-align: center;
   justify-items: center !important; }
 
@@ -223,15 +252,41 @@ meter[value="4"]::-webkit-meter-optimum-value {
 .addTrade button {
   margin-left: 27%; }
 
-@media (max-width: 768px) {
+.editBtn {
+  background: white;
+  padding: 5px 10px;
+  font-weight: 400;
+  border-radius: 4px; }
+
+.editBtn:hover {
+  border-radius: 4px;
+  font-weight: 600;
+  border-width: 2px; }
+
+.deleteBtn {
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-weight: 400;
+  transition: all .2s; }
+
+.deleteBtn:hover {
+  background: rgba(3, 191, 249, 0.838); }
+
+@media only screen and (max-width: 768px) {
+  #bodyCont_MAIN {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
   .navBarContainer {
-    width: 100vw !important;
-    height: 7vh; }
+    width: 100vw !important; }
   .navBar {
     width: 100vw !important;
     font-size: 3.5vw; }
   .navBar a {
     font-size: 3vw; }
+  .userHomeContainer {
+    flex-direction: column;
+    padding: 75px  0 0 0; }
   .userHomeTitle h1 {
     padding: 50px 20px 0 0;
     font-size: 7vw;
@@ -251,7 +306,7 @@ meter[value="4"]::-webkit-meter-optimum-value {
     -webkit-text-stroke-color: black;
     font-weight: bolder; }
   .tickerSearchBar {
-    margin-left: 35px; }
+    margin: 35px; }
   .tickerSearchBar label {
     font-size: 6vw; }
   .tickerSearchBar input {
@@ -260,38 +315,37 @@ meter[value="4"]::-webkit-meter-optimum-value {
     text-align: center; }
   .watchlist {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding: 0px !important;
-    width: 90vw;
-    flex-direction: column; }
-  .watchlistSpacer {
-    width: 90vw !important;
-    padding: 0px !important; }
-  .list-group-item.watchlistSpacer {
-    width: 90vw;
-    font-size: 14px;
-    padding: 0px !important; }
-  .editBtn button {
-    margin-top: 7px !important;
-    width: 15vw;
-    height: 5vh;
-    font-size: 2vw !important;
+    width: 100vw;
+    padding: 40px; }
+  .editBtnCont {
+    display: flex;
+    justify-content: space-around;
+    width: 75%; }
+  .editBtn {
+    width: 55px;
+    font-size: .6em !important;
     text-align: center !important; }
+  .btninline {
+    font-size: .6em;
+    width: 55px; }
   .tradeInfo {
     width: 55vw;
-    height: 10vh;
-    padding: 7px 0 5px 15px;
-    font-size: 3vw; }
+    padding: 0;
+    font-size: 2.5vw;
+    font-weight: 100; }
   .tradeInfo h5 {
-    font-size: 5vw; }
+    font-size: 4vw;
+    font-weight: lighter; }
   .recordTrade {
-    margin-top: 10px;
     margin-left: 0px;
-    width: 90vw; }
+    width: 70vw; }
   canvas.chart {
     margin-left: -25px;
     position: relative;
-    padding-right: 0px !important;
     display: block;
     width: 100vw !important;
     height: 40vh !important; }

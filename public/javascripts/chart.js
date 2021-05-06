@@ -23,14 +23,12 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: tickerLabel,
             data: newDataArray,
-            backgroundColor: [
-              'rgba(231, 114, 17, 0.8)'
-                // 'rgba(255, 99, 132, 0.4)',
-                // 'rgba(255, 206, 86, 0.2)',
-                // 'rgba(75, 192, 192, 0.2)',
-                // 'rgba(153, 102, 255, 0.2)',
-                // 'rgba(255, 159, 64, 0.2)'
-            ],
+            pointBackgroundColor:function(context) {
+                var index = context.dataIndex;
+                var value = context.dataset.data[index];
+                return value > 240 ? 'green' : 'red' ;// draw negative values in red
+                    
+            },
             borderColor: [
                 // 'rgba(255, 99, 132, 1)',
                 // 'rgba(54, 162, 235, 1)',
@@ -45,13 +43,20 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             xAxes: [{
+                gridLines: {
+                    display: false
+                },
                 ticks: {
                     display: false
                 }
             }],
             yAxes: [{
+                gridLines: {
+                    display: false
+                },
                 ticks: {
-                    beginAtZero: false
+                    beginAtZero: false,
+                    showLines: false
                 }
             }]
         }

@@ -1,28 +1,34 @@
 <div class="userHomeContainer overlay">
 
-  <div class="userHomeTitle">
+  {{!-- <div class="userHomeTitle">
     <h1>Track your Trades</h1>
     <h2>Never forget an entry/exit!</h2>
+  </div> --}}
+  <div>
+    <div class="tickerSearchBar">
+      <form id="tickerSearchBar" action="/userHome/query" method="GET">
+        <label id="searchBarTitle" for="stockTicker">Quick Quote</label><br>
+        {{!-- <h3>Test</h3> --}}
+        <input id="Ticker" type="text" value="" name="stockTicker" placeholder="Enter Ticker">
+      </form>
+    </div>
+
+    {{query}}
+
+    {{!-- {{#if financeData}} --}}
+      <div class="hideMe"> {{theData}} </div>
+      <div class="hideDates"> {{theDates}} </div>
+      <div class="hideLabel"> {{theLabel}} </div>
+      
+      <div class="chart-container">
+        <canvas id="myChart" class="chart"></canvas>
+      </div>
+    {{!-- {{/if}} --}}
   </div>
 
-  <div class="tickerSearchBar">
-    <form id="tickerSearchBar" action="/userHome/query" method="GET">
-      <label for="stockTicker">Quick Quote</label><br>
-      <input id="Ticker" type="text" value="" name="stockTicker" placeholder="Enter Ticker">
-    </form>
-  </div>
+<div class='watchlistCont' style="width:80%;max-width:750px;">
 
-  {{query}}
-
-  {{#if financeData}}
-    <div class="hideMe"> {{theData}} </div>
-    <div class="hideDates"> {{theDates}} </div>
-    <div class="hideLabel"> {{theLabel}} </div>
-    
-    {{!-- <div class="chart-container"> --}}
-      <canvas id="myChart" class="chart"></canvas>
-    {{!-- </div> --}}
-  {{/if}}
+  <h2 class="watchlistTitle">Positions</h2>
 
   <div class="watchlist">
     <button class="btn btn-primary bg-secondary recordTrade" data-toggle="modal" data-target="#exampleModal3">
@@ -30,7 +36,7 @@
       Record New Trade
     </button></br>
  
-    <ul class="list-group list-group-flush">
+    <ul id='stock_list' class="list-group list-group-flush">
       {{#each myStocks}}
         <li class="list-group-item watchlistSpacer">
 
@@ -42,13 +48,14 @@
             $<span class="price">{{price}}</span> 
           </div>
   
-          <div class="editBtn">
+          <div class="editBtnCont">
             {{!-- <form class="btninline" action="/editTrade?tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}" method="GET"><button class="btn btn-primary bg-warning" data-toggle="modal" data-target="#exampleModal4">Edit</button></form> --}}
             {{!-- <a href="/editTrade?_id={{_id}}&tradeType={{tradeType}}&shares={{shares}}&ticker={{ticker}}&price={{price}}"> --}}
-            <button class="btn btn-primary bg-warning"  data-toggle="modal" data-target="#exampleModal4" >Edit</button>
+            <button class="editBtn"  data-toggle="modal" data-target="#exampleModal4" >Edit</button>
             {{!-- </a> --}}
             <form class="btninline" action="/stock/delete/{{_id}}" method="POST">
-            <a href="/userHome"><button class="btn btn-primary bg-danger">Delete</button></a>
+            {{!-- <button href="/userHome"><button class="deleteBtn">Delete</button></button> --}}
+            <button class="deleteBtn">Delete</button>
             </form>
           </div>
           
@@ -56,14 +63,13 @@
       {{/each}}
     </ul>
   </div>
-
+</div>
 
 
 </div>
 
 {{!-- =========================================================================================
-= = = = = = = = = = = = = = = = = = Record Trade Modal = = = = = = = = = = = = = = = = = = = = 
-=========================================================================================== --}}
+= = = = = = = = = = = = = = = = = = Record Trade Modal = = = = = = = = = = = = = = = = = = = = --}}
 
 <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -111,17 +117,15 @@
 
       </div>
     </div>
-  </div>
+</div>
 
-  {{!-- =======================================================================================
-= = = = = = = = = = = = = = = = = = End Record Trade Modal = = = = = = = = = = =  = = = = = = = 
+{{!-- = = = = = = = = = = = = = = = = = = End Record Trade Modal = = = = = = = = = = =  = = = = = = = 
 ========================================================================================= --}}
 
 
 
 {{!-- =========================================================================================
-= = = = = = = = = = = = = = = = = = Edit Trade Modal = = = = = = = = = = = = = = = = = = = = 
-=========================================================================================== --}}
+= = = = = = = = = = = = = = = = = = Edit Trade Modal = = = = = = = = = = = = = = = = = = = = --}}
 
 <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -132,7 +136,8 @@
         </div>
 
         <div class="modal-body">
-          <form class="modal3" action= "/editTrade" method="POST">
+        {{!-- FORM ===================================================== --}}
+          <form class="modal3" action= "/editTrade" method="post">
 
             <div class="form-group">
                 <input type="radio" id="buy" class="form-contorl"
@@ -175,9 +180,8 @@
     </div>
   </div>
 
-{{!-- =========================================================================================
-= = = = = = = = = = = = = = = = = = End Edit Trade Modal = = = = = = = = = = = = = = = = = = = = 
+{{!-- = = = = = = = = = = = = = = = = = = End Edit Trade Modal = = = = = = = = = = = = = = = = = = = = 
 =========================================================================================== --}}
 
-<script src="/javascripts/chart.js"></script>  
-<script src="/javascripts/editBtn.js"></script>  
+<script src="../javascripts/chart.js"></script>  
+<script src="../javascripts/editBtn.js"></script>  

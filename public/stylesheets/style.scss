@@ -1,9 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap');
+$railwayFont: 'Raleway', sans-serif;
+
 * {
   margin: 0 auto; 
+  font-family: $railwayFont;
 }
 
 body {
-  font: 14px "Lucida Grande";
+  // font: 14px "Lucida Grande";
+  background-color: #f1f9ff;
+
+}
+
+#bodyCont_MAIN {
+  background-color: #f1f9ff;
+  margin: 0;
 }
 
 #form {
@@ -11,7 +22,7 @@ body {
 }
 
 #form label {
-  color: #666;
+  color: red;
   display: inline-block;
   margin-bottom: 10px;
   text-align: center;
@@ -105,7 +116,8 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 }
 
 .navBarContainer {
-  background-color: rgba(239, 134, 17, .8);
+  background-color: orange;
+  box-shadow: 5px 5px 30px rgba(0,0,0,.2);
   padding: 10px;
   width: 100vw;
   position: fixed;
@@ -148,11 +160,17 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 }
 
 .userHomeContainer {
+  width: 100vw;
   height: 100vh;
-  background-image: url("../images/userHome.jpeg");
+  display:flex;
+  align-items: center;
+  // background-image: url("../images/userHome.jpeg");
+  // SEMI-ORIGINAL background-color: rgba(241, 249, 255,1);
+  background-color: #444;
   background-position: center;
   background-size: cover;
   position: relative;
+  overflow: hidden;
 }
 
 .userHomeTitle h1{
@@ -184,43 +202,99 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 }
 
 .tickerSearchBar {
-  margin-left: 65px; 
+  // position: absolute;
+  // top: 50%;
+  // transform:translateY(-50%);
+  background: white;
+  padding: 35px;
+  box-shadow: 5px 5px 25px rgba(0,0,0,.1);
 }
 
 .tickerSearchBar label {
-  color: white; 
+  color: gray; 
   font-size: 3vw;
-  color: black;
-  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: .5px;
-  -webkit-text-stroke-color: black;
-  font-weight: bolder;
+  // color: black;
+  // -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  // -webkit-text-stroke-width: .5px;
+  // -webkit-text-stroke-color: black;
+  font-weight: lighter;
 }
 
 .tickerSearchBar input {
-  width: 20vw;
+  // width: 50%;
   font-size: 2vw; 
   text-align: center;
 }
 
+#tickerSearchBar {
+  text-align: center;
+}
 
 .watchlist {
-  margin-top: 20px;
+  // position: absolute;
+  // right: 5%;
+  background-color: #f1f9ff;
+  padding: 20px;
+  // margin-top: 20px;
   display: flex;
-  padding-left: 25vw;
-  width: 45vw;
+  // padding-left: 25vw;
+  width: 80%;
+  max-width: 750px;
+  height: fit-content;
   flex-direction: column;
+  align-items: center;
+  // border: 2px solid red;
+  // box-shadow: 0px 0px 35px rgba(0,0,0,.1);
 }
 
 .watchlistSpacer {
-  display: flex !important;
-  align-items: center;
-  width: 45vw;
-  justify-content: space-between;
+  // display: flex !important;
+  // align-items: center;
+  // width: 97%;
+  // // justify-content: space-between;
+  // margin: 10px 0 10px 0 !important;
+  // box-shadow: 5px 5px 35px rgba(0, 0, 0, 0.1);
+  // transition: all .2s;
+  // // border-radius: 16px !important;
 }
 
+.watchlistCont {
+
+}
+
+.watchlistTitle {
+  color: #f5f5f5;
+}
+
+.watchlistSpacer:hover {
+  transform: scale(1.01);
+  box-shadow: 5px 5px 25px rgba(87, 91, 97, 0.3);
+}
+
+#stock_list {
+  overflow-y: scroll;
+}
+
+#stock_list li {
+  width: 95%;
+  display: flex;
+  align-items: center;
+}
+
+.list-group.list-group-flush {
+  // display: flex;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+  overflow: scroll;
+  padding: 55px;
+
+}
 .list-group-item {
   display: inline;
+  padding: 15px;
+  border-radius: 6px;
+  // overflow: scroll;
 }
 
 .btninline {
@@ -228,15 +302,16 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
 }
 
 .chart {
-  position: absolute;
+  // position: absolute;
   left:0;
-  width:50vw !important;
+  width:70vw !important;
   height:60vh !important;
+  overflow: scroll;
 }
 
 .recordTrade  {
-  margin-left: 45px;
-  width: 37vw;
+  // margin-left: 45px;
+  // width: 37vw;
   text-align: center;
   // float: right;
   justify-items: center !important;
@@ -251,15 +326,48 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
  margin-left: 27%;
 }
 
+.editBtn {
+  background: white;
+  padding: 5px 10px;
+  font-weight: 400;
+  border-radius: 4px;
+  // box-shadow: 4px 4px 25px rgba(0,0,0,.1);
+}
+.editBtn:hover {
+  border-radius: 4px;
+  font-weight: 600;
+  border-width: 2px;
+}
+
+.deleteBtn {
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-weight: 400;
+  // box-shadow: inset 5px 5px 15px rgba(158, 193, 255, 0.7);
+  transition: all .2s;
+}
+.deleteBtn:hover {
+  background: rgba(3, 191, 249, 0.838);
+  // font-weight: 600;
+  // border-width: 2px;
+  // border-radius: 4px;
+  // box-shadow: inset -5px -5px 15px rgba(158, 193, 255, 0.95);
+}
+
 // =======================================
 //= = = = = = = Media Query = = = = = = =
 //========================================
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+  #bodyCont_MAIN {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .navBarContainer {
     width: 100vw !important;
-    height: 7vh; 
+    // height: 7vh; 
   }
 
   .navBar {
@@ -271,28 +379,33 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
     font-size: 3vw;
   }
 
+  .userHomeContainer {
+    flex-direction: column;
+    padding: 75px  0 0 0;
+  }
+
   .userHomeTitle h1 {
-   padding: 50px 20px 0 0;
-   font-size: 7vw;
-   color: black;
-   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-   -webkit-text-stroke-width: .5px;
-   -webkit-text-stroke-color: black;
-   font-weight: bolder;
+    padding: 50px 20px 0 0;
+    font-size: 7vw;
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: black;
+    font-weight: bolder;
   }
 
   .userHomeTitle h2 {
     margin-right: 15px;
     font-size: 6vw;
     color: black;
-   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
-   -webkit-text-stroke-width: .5px;
-   -webkit-text-stroke-color: black;
-   font-weight: bolder;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: black;
+    font-weight: bolder;
   }
 
   .tickerSearchBar {
-    margin-left: 35px; 
+    margin: 35px; 
   }
 
   .tickerSearchBar label {
@@ -308,46 +421,67 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
   .watchlist {
     // padding-right: 25px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding: 0px !important;
-    width: 90vw;
-    flex-direction: column;
+    width: 100vw;
+    // overflow: scroll;
+    padding: 40px;
   }
-  
+
+  .list-group.list-group-flush {
+    // padding: 0 !important;
+    // height: 55vh;
+    // width: 100%;
+    
+  }
+
   .watchlistSpacer {
-    width: 90vw !important;
-    padding: 0px !important;
+    // width: 75vw !important;
+    // padding: 0px !important;
   }
 
-  .list-group-item.watchlistSpacer {
-    width: 90vw;
-    font-size: 14px;
-    padding: 0px !important;
+  // .list-group-item.watchlistSpacer {
+  //   // width: 90vw;
+  //   // font-size: 14px;
+  //   // padding: 0px !important;
+  // }
+
+  .editBtnCont {
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
   }
 
-  .editBtn button {
-    margin-top: 7px !important;
-    width: 15vw;
-    height: 5vh;
-    font-size: 2vw !important;
+  .editBtn {
+    width: 55px;
+    font-size: .6em !important;
     text-align: center !important;
+  }
+
+  .btninline {
+    font-size: .6em;
+    width: 55px;
   }
 
   .tradeInfo {
     width: 55vw;
-    height: 10vh;
-    padding: 7px 0 5px 15px;
-    font-size: 3vw;
+    // height: 10vh;
+    padding: 0;
+    font-size: 2.5vw;
+    font-weight: 100;
   }
 
   .tradeInfo h5 {
-    font-size: 5vw;
+    font-size: 4vw;
+    font-weight: lighter;
+    // font-family: sans-serif;
   }
 
   .recordTrade {
-    margin-top: 10px;
     margin-left: 0px;
-    width: 90vw;
+    width: 70vw;
     // margin-left: 15px;
   }
 
@@ -355,7 +489,7 @@ meter[value="4"]::-webkit-meter-optimum-value { background: green; }
     // background:rgba(0,0,0,0.5);
     margin-left: -25px;
     position:relative;
-    padding-right: 0px !important;
+    // padding-right: 0px !important;
     display: block;
     width:100vw !important;
     height: 40vh !important;

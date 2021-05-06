@@ -61,7 +61,7 @@ router.get("/userHome/query", isLoggedIn, (req, res, next) => {
 
         res.render("userHome", data);
     
-        res.render("userHome", data);
+        // res.render("userHome", data);
       })
       .catch(err => { next(err) })
     })
@@ -95,6 +95,7 @@ router.post("/stock", isLoggedIn, (req, res, next) => {
 
 //  ---------------------- EDIT -----------------------------------------------
 router.get("/editTrade", isLoggedIn, (req, res, next) => {
+  console.log('/editTrade GET is being called!!!');
   console.log("THIS IS REQ.SESSION.CURRENT USER====>>>>>",req.session.currentUser, req.query, req.params, req.body)
   res.render("editTrade", {
     stock: req.query,
@@ -102,29 +103,23 @@ router.get("/editTrade", isLoggedIn, (req, res, next) => {
   });
 });
 
-
-
 router.post("/editTrade", isLoggedIn, (req, res, next) => {
   console.log(req.body);
-  // console.log("THIS IS REQ.SESSION.CURRENT USER==saDasd==>>>>>",req.session.currentUser, req.body, req.query, req.params)
+  console.log("THIS IS REQ.SESSION.CURRENT USER==saDasd==>>>>>",req.session.currentUser, req.body, req.query, req.params)
   let stock = req.body; 
   console.log(stock, req.body.identification)
-  Stock.findByIdAndUpdate(req.body.identification,  stock ).then(resFromDB=>{
+  Stock.findByIdAndUpdate(req.body.identification,  stock )
+  .then( resFromDB => {
     res.redirect('/userHome')
-  }).catch(err=>console.error(err))
+  })
+  .catch( err => console.error(err) );
 });
-
-
-
-
-
-
 
 // Delete 
 router.post('/stock/delete/:stockId', (req,res,next) => {
   // console.log("running delete stock route <<<<<<<<<")
-  // let stock = req.body;
-  // stock.user = req.session.currentUser._id
+  let stock = req.body;
+  stock.user = req.session.currentUser._id
   Stock.findByIdAndDelete(req.params.stockId)
   .then(()=> {
     res.redirect('/userHome')
